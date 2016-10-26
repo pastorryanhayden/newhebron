@@ -1,0 +1,132 @@
+---
+layout: default
+---
+
+<div class="header" {% if  site.data.header[0].Background_Image %} style=" background: url({{ site.data.header[0].Background_Image[0].url }}) no-repeat center center; background-size: cover;"
+{% else %}style=" background: url(http://sitesforchurch.s3.amazonaws.com/headerbackground.png) no-repeat center center; background-size: cover;" {% endif %}>
+  <ul class="socialbar">
+    <li><a href="#"><i class="fa fa-phone"></i></a></li>
+    <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+  </ul>
+  <img src="http://placehold.it/320x140?text=logo" alt="">
+  <h1>{{site.data.header[0].Heading}}</h1>
+  {{site.data.header[0].Opening_Paragraph | markdownify }}
+  <a href="#visit" class="cta button large">Plan A Visit</a>
+  <ul class="menu">
+    <li><a href="#"><i class="fa fa-calendar"></i> View Upcoming Events</a></li>
+    <li><a href="#"><i class="fa fa-user"></i> Meet Our Pastor</a></li>
+    <li><a href="#"><i class="fa fa-envelope"></i> Get In Touch</a></li>
+  </ul>
+</div><!--/header-->
+<div class="intro">
+  <h2>{{ site.data.intro2[0].Heading }}</h2>
+  <div class="find-sections">
+    {% for item in site.data.intro %}
+  <div class="find-section">
+    <img src="{{ item.Image[0].url }} " alt="">
+    <h3>{{item.Heading}}</h3>
+    {{item.Text | markdownify }}
+  </div><!--/find-section-->
+  {% endfor %}
+  </div><!--/find-sections-->
+</div><!--/intro-->
+<div class="testimonials">
+  <div class="testimonials-wrapper">
+    {% for item in site.data.testimonials %}
+   
+  <div class="testimonial">
+    <img src="{{ item.Thumbnail[0].url }}" alt="">
+    {{ item.Testimonial | markdownify }}
+    <p class="signature"> {{ item.Person }}</p>
+  </div><!--/testimonial-->
+   {% endfor %}
+ 
+  </div><!--/testimonials-wrapper-->
+</div><!--/testimonials-->
+<div class="visit">
+  <h2 id="visit">{{site.data.visit2[0].Heading }}</h2>
+  <p class="intro-text" >{{site.data.visit2[0].Intro }}</p>
+  <div class="visit-sections">
+    {% for section in site.data.visit1 %}
+  <div class="visit-section">
+    <img src="{{section.Image[0].url}}" alt="">
+    <div class="text">
+      <h3>{{section.Heading}}</h3>
+      {{section.Text | markdownify }}
+    </div><!--/text-->
+    </div><!--/visit-section-->
+   {% endfor %}
+    </div><!--/visit-sections-->
+</div><!--/visit-->
+<div class="map" id="canvas1">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3296.0975536346546!2d-78.7288047!3d34.297058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aa8b75613e4561%3A0x2667399805bc6ed5!2s2012+S+Madison+St%2C+Whiteville%2C+NC+28472!5e0!3m2!1sen!2sus!4v1473851530405" width="100%" height="420px" frameborder="0" style="border:0" allowfullscreen id="map_canvas1"></iframe>
+</div><!--/map-->
+<div class="pastor">
+  <h2>Meet Our Pastor</h2>
+  <img src="{{ site.data.pastor[0].Image[0].url }}" alt="">
+  {{ site.data.pastor[0].Text | markdownify }}
+  <ul class="pastor-contact">
+    <li class="email">{{ site.data.pastor[0].Email }} </li>
+    <li class="phone"> {{ site.data.pastor[0].Phone }} </li>
+  </ul>
+</div><!--/pastor-->
+<div class="events">
+  <h2>Upcoming Events</h2>
+  <div class="featured-event">
+    <img src="http://placehold.it/600x337" alt="">
+    <div class="details">
+      <h4><a href="#">Awesome Event Name</a></h4>
+      <p class="date"><strong>Date:</strong> Saturday, December 1</p>
+      <p class="time"><strong>Time:</strong> 12:00 PM</p>
+      <p class="description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, eveniet, reprehenderit enim, optio voluptatum iusto odio dicta repellendus, voluptatibus nemo dolores odit corporis molestias facilis earum esse vitae impedit tempora?
+      </p>
+      <a href="#">Read More</a>
+    </div><!--/details-->
+  </div><!--/featured-event-->
+  <div class="single-event">
+      <div class="date-display">
+        <p class="number">15</p>
+        <p class="month">DEC</p>
+      </div><!--/date-display-->
+      <div class="event-info">
+        <h4><a href="#">Awesome Event Name</a></h4>
+        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
+        <p class="time"><strong>Time:</strong> 12:00 PM</p>
+      </div><!--/event-info-->
+  </div><!--/single-event-->
+  <div class="single-event">
+      <div class="date-display">
+        <p class="number">15</p>
+        <p class="month">DEC</p>
+      </div><!--/date-display-->
+      <div class="event-info">
+        <h4><a href="#">Awesome Event Name</a></h4>
+        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
+        <p class="time"><strong>Time:</strong> 12:00 PM</p>
+      </div><!--/event-info-->
+  </div><!--/single-event-->
+  <div class="single-event">
+      <div class="date-display">
+        <p class="number">15</p>
+        <p class="month">DEC</p>
+      </div><!--/date-display-->
+      <div class="event-info">
+        <h4><a href="#">Awesome Event Name</a></h4>
+        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
+        <p class="time"><strong>Time:</strong> 12:00 PM</p>
+      </div><!--/event-info-->
+  </div><!--/single-event-->
+</div><!--/events-->
+<div class="photos">
+  <div class="photos-inner" id="sqr-gallery">
+  {% for img in site.data.images[0].Images  limit: 12 %}
+        <div class="photo"><a href="#" data-featherlight="{{img.url}}"><img src="{{img.thumbnails.large.url }}" alt=""></a></div>
+      {% endfor %}
+  </div><!--/photos-inner-->
+</div><!--/gallery-->
+<div class="contact">
+  <h2>Contact Us</h2>
+
+</div><!--/contact-->
