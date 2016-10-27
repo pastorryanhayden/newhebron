@@ -4725,7 +4725,7 @@ table.hover tr:nth-of-type(even):hover {
   position: relative; }
   @media screen and (min-width: 41.25em) {
     .header {
-      height: 60vh;
+      height: 70vh;
       padding-bottom: 40px; } }
   .header .socialbar {
     list-style-type: none;
@@ -5091,18 +5091,9 @@ div.main {
 
 div.contact {
   max-width: 1200px;
-  padding: 30px;
+  padding: 40px;
   margin-left: auto;
   margin-right: auto; }
-  div.contact .contact-content {
-    max-width: 600px; }
-    div.contact .contact-content a, div.contact .contact-content a:visited {
-      color: #617B95; }
-    div.contact .contact-content ul.address {
-      list-style-type: none;
-      padding-left: 0;
-      margin-left: 0; }
-      div.contact .contact-content ul.address li:nth-child(3) {
-        padding-left: 14px; }
-      div.contact .contact-content ul.address li a {
-        color: #617B95; }
+  div.contact h2 {
+    font-size: 36px;
+    font-weight: bold; }

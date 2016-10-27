@@ -281,3 +281,29 @@ var featuredeventJsonTest = [];
       console.log('featuredevent worked');
     });
 
+var filecontact = '_data/contact.json';
+var contact = new Airtable({ apiKey: config.apikey }).base(config.newhebron);
+var contactJson = [];
+var contactJsonTest = [];
+    contact('Contact_Info').select({
+        maxRecords: 1
+    }).eachPage(function page(records, fetchNextPage) {
+
+        // This function (`page`) will get called for each page of records.
+
+        records.forEach(function(record) {
+          contactJson.push(record._rawJson.fields);
+          
+        });
+        fetchNextPage();
+
+    }, function done(error) {
+        if (error) {
+            console.log(error);
+        }
+      jsonfile.writeFile(filecontact, contactJson, function (err) {
+        console.error(err)
+      });
+      console.log('contact worked');
+    });
+
