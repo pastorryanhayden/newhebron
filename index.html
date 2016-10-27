@@ -73,53 +73,40 @@ layout: default
 </div><!--/pastor-->
 <div class="events">
   <h2>Upcoming Events</h2>
+
+  {% for event in site.data.featuredevent %}
   <div class="featured-event">
   <div class="image">
+    {% if event.Featured_Image %}
+    <img src="{{event.Featured_Image[0].url}}" alt="">
+    {% else %}
     <img src="http://placehold.it/600x337" alt="">
+    {% endif %}
   </div><!--/image-->
     <div class="details">
-      <h4><a href="#">Awesome Event Name</a></h4>
-      <p class="date"><strong>Date:</strong> Saturday, December 1</p>
-      <p class="time"><strong>Time:</strong> 12:00 PM</p>
+      <h4><a href="#">{{event.Event_Title}}</a></h4>
+      <p class="date"><strong>Date:</strong> {{event.Date | date: "%A, %B %-d"}}</p>
+      <p class="time"><strong>Time:</strong> {{event.Date | date: "%I:%M %p"}}</p>
       <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, eveniet, reprehenderit enim, optio voluptatum iusto odio dicta repellendus, voluptatibus nemo dolores odit corporis molestias facilis earum esse vitae impedit tempora?
+        {{event.Event_Description}}
       </p>
       <a href="#" class="read-more">Read More</a>
     </div><!--/details-->
   </div><!--/featured-event-->
+  {% endfor %}
+  {% for event in site.data.events %}
   <div class="single-event">
       <div class="date-display">
-        <p class="number">15</p>
-        <p class="month">DEC</p>
+        <p class="number">{{event.Date | date: "%d"}}</p>
+        <p class="month">{{event.Date | date: "%b"}}</p>
       </div><!--/date-display-->
       <div class="event-info">
-        <h4><a href="#">Awesome Event Name</a></h4>
-        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
-        <p class="time"><strong>Time:</strong> 12:00 PM</p>
+        <h4><a href="#">{{event.Event_Title}}</a></h4>
+        <p class="date"><strong>Date:</strong> {{event.Date | date: "%A, %B %-d"}}</p>
+        <p class="time"><strong>Time:</strong> {{event.Date | date: "%I:%M %p"}}</p>
       </div><!--/event-info-->
   </div><!--/single-event-->
-  <div class="single-event">
-      <div class="date-display">
-        <p class="number">15</p>
-        <p class="month">DEC</p>
-      </div><!--/date-display-->
-      <div class="event-info">
-        <h4><a href="#">Awesome Event Name</a></h4>
-        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
-        <p class="time"><strong>Time:</strong> 12:00 PM</p>
-      </div><!--/event-info-->
-  </div><!--/single-event-->
-  <div class="single-event">
-      <div class="date-display">
-        <p class="number">15</p>
-        <p class="month">DEC</p>
-      </div><!--/date-display-->
-      <div class="event-info">
-        <h4><a href="#">Awesome Event Name</a></h4>
-        <p class="date"><strong>Date:</strong> Saturday, December 1</p>
-        <p class="time"><strong>Time:</strong> 12:00 PM</p>
-      </div><!--/event-info-->
-  </div><!--/single-event-->
+  {% endfor %}
 </div><!--/events-->
 <div class="photos">
   <div class="photos-inner" id="sqr-gallery">

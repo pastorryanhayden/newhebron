@@ -225,3 +225,59 @@ var pastorJsonTest = [];
       console.log('pastor worked');
     });
 
+var fileevents = '_data/events.json';
+var events = new Airtable({ apiKey: config.apikey }).base(config.newhebron);
+var eventsJson = [];
+var eventsJsonTest = [];
+    events('Events').select({
+        maxRecords: 15,
+        filterByFormula: 'AND(NOT(Is_Featured), Future)',
+        sort: [{field: "Date", direction: "asc"}]
+    }).eachPage(function page(records, fetchNextPage) {
+
+        // This function (`page`) will get called for each page of records.
+
+        records.forEach(function(record) {
+          eventsJson.push(record._rawJson.fields);
+          
+        });
+        fetchNextPage();
+
+    }, function done(error) {
+        if (error) {
+            console.log(error);
+        }
+      jsonfile.writeFile(fileevents, eventsJson, function (err) {
+        console.error(err)
+      });
+      console.log('events worked');
+    });
+
+var filefeaturedevent = '_data/featuredevent.json';
+var featuredevent = new Airtable({ apiKey: config.apikey }).base(config.newhebron);
+var featuredeventJson = [];
+var featuredeventJsonTest = [];
+    featuredevent('Events').select({
+        maxRecords: 1,
+        view: 'Featured',
+        sort: [{field: "Date", direction: "asc"}]
+    }).eachPage(function page(records, fetchNextPage) {
+
+        // This function (`page`) will get called for each page of records.
+
+        records.forEach(function(record) {
+          featuredeventJson.push(record._rawJson.fields);
+          
+        });
+        fetchNextPage();
+
+    }, function done(error) {
+        if (error) {
+            console.log(error);
+        }
+      jsonfile.writeFile(filefeaturedevent, featuredeventJson, function (err) {
+        console.error(err)
+      });
+      console.log('featuredevent worked');
+    });
+
